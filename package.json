@@ -1,0 +1,50 @@
+{
+  "name": "package-json-cli",
+  "version": "0.0.0",
+  "description": "Get the package.json of a package from the npm registry",
+  "license": "MIT",
+  "repository": "sindresorhus/package-json-cli",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com"
+  },
+  "bin": {
+    "package-json": "cli.js"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "xo && ava"
+  },
+  "files": [
+    "cli.js"
+  ],
+  "keywords": [
+    "cli-app",
+    "cli",
+    "npm",
+    "registry",
+    "package",
+    "pkg",
+    "package.json",
+    "json",
+    "module",
+    "scope",
+    "scoped"
+  ],
+  "dependencies": {
+    "filter-obj": "^1.1.0",
+    "meow": "^3.7.0",
+    "package-json": "^2.3.0"
+  },
+  "devDependencies": {
+    "ava": "*",
+    "execa": "^0.2.2",
+    "xo": "*"
+  },
+  "xo": {
+    "esnext": true
+  }
+}
