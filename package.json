@@ -37,14 +37,11 @@
   "dependencies": {
     "filter-obj": "^1.1.0",
     "meow": "^3.7.0",
-    "package-json": "^2.3.0"
+    "package-json": "^3.0.0"
   },
   "devDependencies": {
     "ava": "*",
-    "execa": "^0.2.2",
+    "execa": "^0.6.0",
     "xo": "*"
-  },
-  "xo": {
-    "esnext": true
   }
 }

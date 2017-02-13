@@ -2,7 +2,7 @@
 'use strict';
 const meow = require('meow');
 const filterObj = require('filter-obj');
-const fn = require('package-json');
+const packageJson = require('package-json');
 
 const cli = meow(`
 	Usage
@@ -12,7 +12,7 @@ const cli = meow(`
 	  $ package-json ava
 	  {
 	    "name": "ava",
-	    "version": "0.11.0",
+	    "version": "0.18.0",
 	    ...
 	  }
 `);
@@ -22,7 +22,7 @@ if (!cli.input[0]) {
 	process.exit(1);
 }
 
-fn(cli.input[0], cli.input[1] || 'latest')
+packageJson(cli.input[0], cli.input[1] || 'latest')
 	// TODO: put this logic in `package-json` in its next major version
 	.then(pkg => filterObj(pkg, key => key[0] !== '_' && key !== 'directories'))
 	.then(x => console.log(JSON.stringify(x, null, '  ')));

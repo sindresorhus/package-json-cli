@@ -22,7 +22,7 @@ $ package-json --help
     $ package-json ava
     {
       "name": "ava",
-      "version": "0.11.0"
+      "version": "0.18.0"
       ...
     }
 ```
@@ -42,4 +42,4 @@ The `version` can be in any format supported by the [semver](https://github.com/
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](https://sindresorhus.com)
