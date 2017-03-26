@@ -22,7 +22,6 @@ if (!cli.input[0]) {
 	process.exit(1);
 }
 
-packageJson(cli.input[0], cli.input[1] || 'latest')
-	// TODO: put this logic in `package-json` in its next major version
+packageJson(cli.input[0], {version: cli.input[1]})
 	.then(pkg => filterObj(pkg, key => key[0] !== '_' && key !== 'directories'))
 	.then(x => console.log(JSON.stringify(x, null, '  ')));
