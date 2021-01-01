@@ -1,4 +1,4 @@
-# package-json-cli [![Build Status](https://travis-ci.org/sindresorhus/package-json-cli.svg?branch=master)](https://travis-ci.org/sindresorhus/package-json-cli)
+# package-json-cli
 
 > Get the package.json of a package from the npm registry
 
