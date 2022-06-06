@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-'use strict';
-const meow = require('meow');
-const filterObj = require('filter-obj');
-const packageJson = require('package-json');
+import process from 'node:process';
+import meow from 'meow';
+import filterObject from 'filter-obj';
+import packageJson from 'package-json';
 
 const cli = meow(`
 	Usage
@@ -13,15 +13,20 @@ const cli = meow(`
 	  {
 	    "name": "ava",
 	    "version": "0.18.0",
-	    ...
+	    …
 	  }
-`);
+`, {
+	importMeta: import.meta,
+});
 
-if (!cli.input[0]) {
+const [packageName, version] = cli.input;
+
+if (!packageName) {
 	console.error('Specify a package name');
 	process.exit(1);
 }
 
-packageJson(cli.input[0], {version: cli.input[1]})
-	.then(pkg => filterObj(pkg, key => key[0] !== '_' && key !== 'directories'))
-	.then(x => console.log(JSON.stringify(x, null, '  ')));
+let package_ = await packageJson(packageName, {version});
+package_ = filterObject(package_, key => key[0] !== '_' && key !== 'directories');
+
+console.log(JSON.stringify(package_, undefined, '  '));
