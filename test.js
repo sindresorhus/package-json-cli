@@ -15,5 +15,6 @@ test('can specify a version', async t => {
 	t.like(JSON.parse(stdout), {
 		name: 'ava',
 		version: '6.0.0',
+		versions: undefined,
 	});
 });
