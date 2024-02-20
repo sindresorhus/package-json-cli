@@ -8,6 +8,10 @@ const cli = meow(`
 	Usage
 	  $ package-json <name> [version]
 
+	Options
+	  --full-metadata  Output full package metadata
+	  --registry       Registry URL                  [Default: inferred]
+
 	Example
 	  $ package-json ava
 	  {
@@ -17,6 +21,13 @@ const cli = meow(`
 	  }
 `, {
 	importMeta: import.meta,
+	flags: {
+		fullMetadata: 'boolean',
+		registryUrl: {
+			type: 'string',
+			aliases: ['registry'],
+		},
+	},
 });
 
 const [packageName, version] = cli.input;
@@ -26,7 +37,12 @@ if (!packageName) {
 	process.exit(1);
 }
 
-let package_ = await packageJson(packageName, {version});
+const options = {
+	version,
+	...cli.flags,
+};
+
+let package_ = await packageJson(packageName, options);
 package_ = includeKeys(package_, key => key.at(0) !== '_' && key !== 'directories');
 
 console.log(JSON.stringify(package_, undefined, '  '));
