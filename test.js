@@ -32,6 +32,7 @@ test('flags: --full-metadata', verify, {
 		time: {
 			created: '2014-07-05T01:26:00.496Z',
 		},
+		_id: undefined,
 	},
 });
 
