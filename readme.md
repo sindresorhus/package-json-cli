@@ -14,11 +14,12 @@ npm install --global package-json-cli
 $ package-json --help
 
   Usage
-    $ package-json <name> [version]
+    $ package-json <name> [version=latest]
 
   Options
-    --full-metadata  Output full package metadata
-    --registry       Registry URL                  [Default: inferred]
+    --full-metadata             Output full package metadata
+    --all-versions, --all       Output all versions
+    --registry-url, --registry  Registry URL                  [Default: inferred]
 
   Example
     $ package-json ava
