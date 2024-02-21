@@ -23,7 +23,9 @@ const cli = meow(`
 `, {
 	importMeta: import.meta,
 	flags: {
-		fullMetadata: 'boolean',
+		fullMetadata: {
+			type: 'boolean',
+		},
 		allVersions: {
 			type: 'boolean',
 			aliases: ['all'],
