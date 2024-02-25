@@ -25,7 +25,7 @@ $ package-json --help
     $ package-json ava
     {
       "name": "ava",
-      "version": "0.18.0"
+      "version": "6.1.1"
       …
     }
 ```

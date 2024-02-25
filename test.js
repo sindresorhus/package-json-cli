@@ -12,6 +12,7 @@ test('main', verify, {
 	args: 'ava',
 	expected: {
 		name: 'ava',
+		versions: undefined, // 'latest' by default
 		time: undefined,
 	},
 });

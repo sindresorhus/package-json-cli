@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import process from 'node:process';
 import meow from 'meow';
-import {includeKeys} from 'filter-obj';
+import {excludeKeys} from 'filter-obj';
 import packageJson from 'package-json';
 
 const cli = meow(`
@@ -51,6 +51,6 @@ const options = {
 };
 
 let package_ = await packageJson(packageName, options);
-package_ = includeKeys(package_, key => key.at(0) !== '_' && key !== 'directories');
+package_ = excludeKeys(package_, key => key.startsWith('_') || key === 'directories');
 
 console.log(JSON.stringify(package_, undefined, '  '));
