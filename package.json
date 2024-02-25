@@ -12,7 +12,7 @@
 	},
 	"type": "module",
 	"bin": {
-		"package-json": "cli.js"
+		"package-json": "./cli.js"
 	},
 	"engines": {
 		"node": ">=18"
