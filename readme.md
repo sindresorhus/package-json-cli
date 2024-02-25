@@ -17,9 +17,10 @@ $ package-json --help
     $ package-json <name> [version=latest]
 
   Options
-    --full-metadata             Output full package metadata
-    --all-versions, --all       Output all versions
-    --registry-url, --registry  Registry URL                  [Default: inferred]
+    --full-metadata    --full      Output full package metadata
+    --all-versions     --all       Output all versions
+    --registry-url     --registry  Registry URL                  [Default: inferred]
+    --omit-deprecated              Omit deprecated versions      [Default: included]
 
   Example
     $ package-json ava

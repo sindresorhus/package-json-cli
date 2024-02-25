@@ -9,9 +9,10 @@ const cli = meow(`
 	  $ package-json <name> [version=latest]
 
 	Options
-	  --full-metadata  --full      Output full package metadata
-	  --all-versions   --all       Output all versions
-	  --registry-url   --registry  Registry URL                  [Default: inferred]
+	  --full-metadata    --full      Output full package metadata
+	  --all-versions     --all       Output all versions
+	  --registry-url     --registry  Registry URL                  [Default: inferred]
+	  --omit-deprecated              Omit deprecated versions      [Default: included]
 
 	Example
 	  $ package-json ava
@@ -22,6 +23,7 @@ const cli = meow(`
 	  }
 `, {
 	importMeta: import.meta,
+	booleanDefault: undefined,
 	flags: {
 		fullMetadata: {
 			type: 'boolean',
@@ -35,6 +37,10 @@ const cli = meow(`
 			type: 'string',
 			aliases: ['registry'],
 		},
+		omitDeprecated: {
+			type: 'boolean',
+			default: false,
+		},
 	},
 });
 
@@ -45,12 +51,7 @@ if (!packageName) {
 	process.exit(1);
 }
 
-const options = {
-	version,
-	...cli.flags,
-};
-
-let package_ = await packageJson(packageName, options);
+let package_ = await packageJson(packageName, {version, ...cli.flags});
 package_ = excludeKeys(package_, key => key.startsWith('_') || key === 'directories');
 
 console.log(JSON.stringify(package_, undefined, '  '));
