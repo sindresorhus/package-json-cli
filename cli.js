@@ -1,18 +1,18 @@
 #!/usr/bin/env node
 import process from 'node:process';
 import meow from 'meow';
-import filterObject from 'filter-obj';
+import {excludeKeys} from 'filter-obj';
 import packageJson from 'package-json';
 
 const cli = meow(`
 	Usage
-	  $ package-json <name> [version]
+	  $ package-json <name> [version=latest]
 
 	Example
 	  $ package-json ava
 	  {
 	    "name": "ava",
-	    "version": "0.18.0",
+	    "version": "6.1.1",
 	    …
 	  }
 `, {
@@ -27,6 +27,6 @@ if (!packageName) {
 }
 
 let package_ = await packageJson(packageName, {version});
-package_ = filterObject(package_, key => key[0] !== '_' && key !== 'directories');
+package_ = excludeKeys(package_, key => key.startsWith('_') || key === 'directories');
 
 console.log(JSON.stringify(package_, undefined, '  '));

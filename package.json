@@ -15,7 +15,7 @@
 		"package-json": "cli.js"
 	},
 	"engines": {
-		"node": ">=14.16"
+		"node": ">=18"
 	},
 	"scripts": {
 		"test": "xo && ava"
@@ -37,13 +37,13 @@
 		"scoped"
 	],
 	"dependencies": {
-		"filter-obj": "^3.0.0",
-		"meow": "^10.1.2",
-		"package-json": "^8.0.0"
+		"filter-obj": "^5.1.0",
+		"meow": "^13.2.0",
+		"package-json": "^10.0.0"
 	},
 	"devDependencies": {
-		"ava": "^4.3.0",
-		"execa": "^6.1.0",
-		"xo": "^0.49.0"
+		"ava": "^6.1.1",
+		"execa": "^8.0.1",
+		"xo": "^0.57.0"
 	}
 }

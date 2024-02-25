@@ -14,13 +14,13 @@ npm install --global package-json-cli
 $ package-json --help
 
   Usage
-    $ package-json <name> [version]
+    $ package-json <name> [version=latest]
 
   Example
     $ package-json ava
     {
       "name": "ava",
-      "version": "0.18.0"
+      "version": "6.1.1"
       …
     }
 ```
