@@ -6,7 +6,7 @@ import packageJson from 'package-json';
 
 const cli = meow(`
 	Usage
-	  $ package-json <name> [version]
+	  $ package-json <name> [version=latest]
 
 	Example
 	  $ package-json ava

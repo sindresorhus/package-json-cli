@@ -14,7 +14,7 @@ npm install --global package-json-cli
 $ package-json --help
 
   Usage
-    $ package-json <name> [version]
+    $ package-json <name> [version=latest]
 
   Example
     $ package-json ava
