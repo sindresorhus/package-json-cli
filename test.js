@@ -6,6 +6,7 @@ test('main', async t => {
 
 	t.like(JSON.parse(stdout), {
 		name: 'ava',
+		versions: undefined, // 'latest' by default
 	});
 });
 
