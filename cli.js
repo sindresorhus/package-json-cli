@@ -11,8 +11,8 @@ const cli = meow(`
 	Options
 	  --full-metadata  Output full package metadata
 	  --all-versions   Output all versions
-	  --registry-url   Registry URL                  [Default: inferred]
-	  --no-deprecated  Omit deprecated versions      [Default: included]
+	  --registry-url   Custom registry URL
+	  --no-deprecated  Omit deprecated versions
 
 	Example
 	  $ package-json ava
@@ -33,6 +33,10 @@ const cli = meow(`
 		},
 		registryUrl: {
 			type: 'string',
+		},
+		deprecated: {
+			type: 'boolean',
+			default: true,
 		},
 	},
 });

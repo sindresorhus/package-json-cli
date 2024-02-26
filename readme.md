@@ -19,8 +19,8 @@ $ package-json --help
   Options
     --full-metadata  Output full package metadata
     --all-versions   Output all versions
-    --registry-url   Registry URL                  [Default: inferred]
-    --no-deprecated  Omit deprecated versions      [Default: included]
+    --registry-url   Custom registry URL
+    --no-deprecated  Omit deprecated versions
 
   Example
     $ package-json ava
