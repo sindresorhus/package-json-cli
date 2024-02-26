@@ -26,43 +26,37 @@ test('can specify a version', verify, {
 	},
 });
 
-for (const flag of ['--full-metadata', '--full']) {
-	test(`flags: ${flag}`, verify, {
-		args: `ava ${flag}`,
-		expected: {
-			name: 'ava',
-			time: {
-				created: '2014-07-05T01:26:00.496Z',
-			},
-			_id: undefined,
+test('flags: --full-metadata', verify, {
+	args: 'ava --full-metadata',
+	expected: {
+		name: 'ava',
+		time: {
+			created: '2014-07-05T01:26:00.496Z',
 		},
-	});
-}
+		_id: undefined,
+	},
+});
 
-for (const flag of ['--all-versions', '--all']) {
-	test(`flags: ${flag}`, verify, {
-		args: `ava ${flag}`,
-		expected: {
-			name: 'ava',
-			version: undefined,
-			versions: {
-				'6.0.0': {
-					name: 'ava',
-					version: '6.0.0',
-				},
+test('flags: --all-versions', verify, {
+	args: 'ava --all-versions',
+	expected: {
+		name: 'ava',
+		version: undefined,
+		versions: {
+			'6.0.0': {
+				name: 'ava',
+				version: '6.0.0',
 			},
 		},
-	});
-}
+	},
+});
 
-for (const flag of ['--registry-url', '--registry']) {
-	test(`flags: ${flag}`, verify, {
-		args: `ava ${flag} https://registry.yarnpkg.com`,
-		expected: {
-			name: 'ava',
-		},
-	});
-}
+test('flags: --registry-url', verify, {
+	args: 'ava --registry-url https://registry.yarnpkg.com',
+	expected: {
+		name: 'ava',
+	},
+});
 
 test('flags: --omit-deprecated', async t => {
 	const {stdout} = await execa('./cli.js', ['querystring']);
@@ -78,7 +72,7 @@ test('flags: --omit-deprecated', async t => {
 });
 
 test('flags: combined', verify, {
-	args: 'ava --full --all --registry https://registry.yarnpkg.com',
+	args: 'ava --full-metadata --all-versions --registry-url https://registry.yarnpkg.com',
 	expected: {
 		name: 'ava',
 		version: undefined,

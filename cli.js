@@ -9,10 +9,10 @@ const cli = meow(`
 	  $ package-json <name> [version=latest]
 
 	Options
-	  --full-metadata    --full      Output full package metadata
-	  --all-versions     --all       Output all versions
-	  --registry-url     --registry  Registry URL                  [Default: inferred]
-	  --omit-deprecated              Omit deprecated versions      [Default: included]
+	  --full-metadata    Output full package metadata
+	  --all-versions     Output all versions
+	  --registry-url     Registry URL                  [Default: inferred]
+	  --omit-deprecated  Omit deprecated versions      [Default: included]
 
 	Example
 	  $ package-json ava
@@ -27,15 +27,12 @@ const cli = meow(`
 	flags: {
 		fullMetadata: {
 			type: 'boolean',
-			aliases: ['full'],
 		},
 		allVersions: {
 			type: 'boolean',
-			aliases: ['all'],
 		},
 		registryUrl: {
 			type: 'string',
-			aliases: ['registry'],
 		},
 		omitDeprecated: {
 			type: 'boolean',
