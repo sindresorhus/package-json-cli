@@ -16,6 +16,12 @@ $ package-json --help
   Usage
     $ package-json <name> [version=latest]
 
+  Options
+    --full-metadata  Output full package metadata
+    --all-versions   Output all versions
+    --registry-url   Custom registry URL
+    --no-deprecated  Omit deprecated versions
+
   Example
     $ package-json ava
     {
@@ -30,6 +36,8 @@ The `version` can be in any format supported by the [semver](https://github.com/
 - `1` - get the latest `1.x.x`
 - `1.2` - get the latest `1.2.x`
 - `^1.2.3` - get the latest `1.x.x` but at least `1.2.3`
+
+[Dist tags](https://docs.npmjs.com/adding-dist-tags-to-packages) (such as `latest`) are also supported.
 
 ## Related
 
