@@ -2,7 +2,8 @@
 import process from 'node:process';
 import meow from 'meow';
 import {excludeKeys} from 'filter-obj';
-import packageJson from 'package-json';
+import packageJson, {PackageNotFoundError, VersionNotFoundError} from 'package-json';
+import logSymbols from 'log-symbols';
 
 const cli = meow(`
 	Usage
@@ -54,7 +55,19 @@ const options = {
 	...cli.flags,
 };
 
-let package_ = await packageJson(packageName, options);
-package_ = excludeKeys(package_, key => key.startsWith('_') || key === 'directories');
+try {
+	let package_ = await packageJson(packageName, options);
+	package_ = excludeKeys(package_, key => key.startsWith('_') || key === 'directories');
 
-console.log(JSON.stringify(package_, undefined, '  '));
+	console.log(JSON.stringify(package_, undefined, '  '));
+} catch (error) {
+	if (error instanceof PackageNotFoundError) {
+		console.error(`${logSymbols.error} Package \`${packageName}\` does not exist.`);
+	} else if (error instanceof VersionNotFoundError) {
+		console.error(`${logSymbols.error} Could not find version \`${version}\` of the package \`${packageName}\`.`);
+	} else {
+		throw error;
+	}
+
+	process.exitCode = 1;
+}
