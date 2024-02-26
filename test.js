@@ -58,14 +58,14 @@ test('flags: --registry-url', verify, {
 	},
 });
 
-test('flags: --omit-deprecated', async t => {
+test('flags: --no-deprecated', async t => {
 	const {stdout} = await execa('./cli.js', ['querystring']);
 	const json = JSON.parse(stdout);
 
 	t.truthy(json.deprecated);
 
 	const {stderr} = await t.throwsAsync(
-		execa('./cli.js', ['querystring', '0.2', '--omit-deprecated']),
+		execa('./cli.js', ['querystring', '0.2', '--no-deprecated']),
 	);
 
 	t.regex(stderr, /VersionNotFoundError/);
