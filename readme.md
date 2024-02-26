@@ -37,7 +37,7 @@ The `version` can be in any format supported by the [semver](https://github.com/
 - `1.2` - get the latest `1.2.x`
 - `^1.2.3` - get the latest `1.x.x` but at least `1.2.3`
 
-Dist tags (such as `latest`) are also supported.
+[Dist tags](https://docs.npmjs.com/adding-dist-tags-to-packages) (such as `latest`) are also supported.
 
 ## Related
 
